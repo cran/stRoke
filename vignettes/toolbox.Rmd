@@ -1,0 +1,140 @@
+---
+title: "Toolbox"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Toolbox}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(stRoke)
+```
+
+# A toolbox
+
+My own toolbox in my small workshop is a mix of some old, worn, well proven tools and some newcomers. This package should be seen as something like that.
+
+I have tried to collect tools and functions from other packages that I use regularly in addition to functions that I have written myself to fill use cases, that I have not been able to find solutions to elsewhere.
+
+In documenting and testing the package, I have used [OpenAI's](https://beta.openai.com/overview) chatgpt with [gpttools](https://jameshwade.github.io/gpttools/). The chatgpt is an interesting tool, that is in no way perfect, but it helps with tedious tasks. Both `gpttools` and [`gptstudio`](https://michelnivard.github.io/gptstudio/) are interesting implementations in R and RStudio.
+
+## CPR manipulations {#cpr-intro}
+
+Note that, if handled, CPR numbers (social security numbers) should be handled with care as they a considered highly sensitive data.
+
+The CPR number is structured as _DDMMYY-XXXX_, with the 1st _X_ designating decade of birth, the last _X_ designate binary gender (not biological sex) dependent on even/uneven as female/male, and the last for digits are used in a modulus calculation to verify the validity of the CPR number. Foreigners and unidentified persons are given temporary CPR numbers including letters.
+
+More information can be found on [cpr.dk](https://cpr.dk).
+
+Note, that all CPR numbers used in examples are publicly known or non-organic.
+
+### age_calc()
+
+The age_calc() function was created as a learning exercise and functions similarly to `lubridate::time_length()`.
+
+```{r age_calc-example}
+(age <- age_calc(as.Date("1945-10-23"), as.Date("2018-09-30")))
+trunc(age)
+```
+
+### cpr_check()
+
+Checks validity of CPR numbers according to the [modulus 11 rule](https://cpr.dk/cpr-systemet/opbygning-af-cpr-nummeret). Note that due to limitations in the possible available CPR numbers, this rule [does not apply to all CPR numbers after 2007](https://cpr.dk/cpr-systemet/personnumre-uden-kontrolciffer-modulus-11-kontrol).
+
+```{r cpr_check-example}
+cpr_check(
+  c(
+    "2310450637",
+    "010190-2000",
+    "010115-4000",
+    "300450-1030",
+    "010150-4021",
+    "010150-4AA1"
+  )
+)
+```
+
+Including CPR numbers with letters gives a warning and `NA`, as it can not be checked by the modulus 11 function. Should be used with care, see the message.
+
+### cpr_dob()
+
+Extracts date of birth (DOB) from a CPR number. Accounts for the decade of birth. [See earlier](#cpr-intro).
+
+```{r cpr_dob-example}
+cpr_dob(c(
+  "2310450637",
+  "010190-2000",
+  "010115-4000",
+  "300450-1030",
+  "010150-4021"
+))
+```
+
+### cpr_female()
+
+Gives logical vector of whether female gender from last digit of CPR.
+
+```{r cpr_female-example}
+table(cpr_female(stRoke::cprs[, 1]))
+```
+
+## Plotting
+
+### ci_plot()
+
+Plots odds ratios with 95 % confidence intervals. Performs binary logistic regression for outcome factors with two (2) levels and ordinal logistic regression for outcome factors with more than two levels. Mind relevant assumptions. 
+
+Outputs ggplot element for further manipulation.
+
+```{r ci_plot-example}
+data(talos)
+talos[, "mrs_1"] <- factor(talos[, "mrs_1"], ordered = TRUE)
+ci_plot(
+  ds = talos,
+  x = "rtreat",
+  y = "mrs_1",
+  vars = c("hypertension", "diabetes")
+)
+```
+
+### generic_stroke()
+
+For learning purposes. Uses annonymized data from the [TALOS trial](https://doi.org/10.1161/STROKEAHA.117.020067) to output a Table 1 (with `gtsummary::tbl_summary()`), plotting the so-called grotta-bars based on mRS scores (with `rankinPlot::grottaBar()`) and a ordinal logistic regression model plot (with `stRoke::ci_plot()`).
+
+```{r generic_stroke-example}
+generic_stroke(stRoke::talos,
+               "rtreat",
+               "mrs_6",
+               variables = c("hypertension", "diabetes", "civil"))
+```
+
+### index_plot()
+
+Used for plotting scores from a multi dimensional patient test.
+
+```{r index_plot-example}
+index_plot(stRoke::score[score$event == "A", ])
+```
+
+### win_prob()
+
+The `win_prob()` is an implementation of the Tournament Method for calculating the probability of winning as suggested by [Zou et al 2022](https://doi.org/10.1161/STROKEAHA.121.037744). The authors has included a spreadsheet as supplementary materials. This function aims to mimic that functionality. The function also includes a `print()` extension for nice printing.
+
+```{r win_prob-example}
+win_prob(
+  data = stRoke::talos,
+  response = "mrs_6",
+  group = "rtreat",
+  sample.size = TRUE,
+  print.tables = TRUE
+)
+```
+
