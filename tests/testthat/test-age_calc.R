@@ -8,17 +8,17 @@ test_that("age_calc works for vectors of length 1 (scalars)", {
 # Unit Test - gpttools
 
 test_that("age_calc works correctly for years", {
-  expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"), 
+  expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"),
                         units = "years"), 20)
 })
 
 test_that("age_calc gives error if enddate < dob", {
-  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"), 
+  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"),
                         units = "years"))
 })
 
 test_that("age_calc works correctly for months", {
-  expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"), 
+  expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"),
                         units = "months"), 240)
 })
 
@@ -29,9 +29,9 @@ test_that("age_calc works correctly for months", {
 })
 
 test_that("age_calc works correctly for days", {
-  expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"), 
+  expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"),
                         units = "days"), 7305)
-  expect_length(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"), 
+  expect_length(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"),
                          units = "days"), 1)
 })
 
@@ -56,10 +56,17 @@ test_that("age_calc throws an error when enddate is before dob", {
 })
 
 test_that("age_calc throws an error when wrong unit", {
-  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"), 
+  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"),
                         units = "hours"))
 })
 
 test_that("age_calc throws an error when wrong format", {
   expect_error(age_calc("2020-01-01", as.Date("2000-01-01"), units = "hours"))
+})
+
+test_that("age_calc throws an error when wrong format", {
+  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"), 
+                        units = "years"))
+  expect_error(age_calc(as.Date("1982-01-01"), as.Date("2000-01-01"), 
+                        units = "seconds"))
 })

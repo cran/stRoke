@@ -63,3 +63,25 @@ test_that("ci_plot produces a valid plot with method='model'", {
     "ggplot"
   ))
 })
+
+test_that("ci_plot throws error on method", {
+  data(talos)
+  talos[, "mrs_1"] <- factor(talos[, "mrs_1"], ordered = TRUE)
+  testthat::expect_error(ci_plot(
+    ds = talos,
+    x = "rtreat",
+    y = "mrs_1",
+    vars = c("hypertension", "diabetes"),method = "model"
+  ))
+})
+
+test_that("ci_plot throws error on wrong method", {
+  data(talos)
+  talos[, "mrs_1"] <- factor(talos[, "mrs_1"], ordered = TRUE)
+  testthat::expect_error(ci_plot(
+    ds = talos,
+    x = "rtreat",
+    y = "mrs_1",
+    vars = c("hypertension", "diabetes"),method = "wrong"
+  ))
+})

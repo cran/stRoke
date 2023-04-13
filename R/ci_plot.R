@@ -28,10 +28,10 @@ utils::globalVariables(c("vname", "lo", "or", "ord", "up"))
 #' talos[,"mrs_1"]<-factor(talos[,"mrs_1"],ordered=TRUE)
 #' ci_plot(ds = talos, x = "rtreat", y = "mrs_1", 
 #' vars = c("hypertension","diabetes"))
-#' # Model plot
-#' iris$ord<-factor(sample(1:3,size=nrow(iris),replace=TRUE),ordered=TRUE)
-#' lm <- MASS::polr(ord~., data=iris, Hess=TRUE, method="logistic")
-#' ci_plot(ds = lm, method="model")
+#' ## Model plot
+#' # iris$ord<-factor(sample(1:3,size=nrow(iris),replace=TRUE),ordered=TRUE)
+#' # lm <- MASS::polr(ord~., data=iris, Hess=TRUE, method="logistic")
+#' # ci_plot(ds = lm, method="model")
 ci_plot <-
   function(ds,
            x = NULL,

@@ -23,8 +23,8 @@ utils::globalVariables(c("df","group","score","strata"))
 #' @importFrom stats as.formula
 #'
 #' @examples
-#' generic_stroke(df = stRoke::talos, group = "rtreat", score = "mrs_6", 
-#' variables = c("hypertension","diabetes","civil"))
+#' # generic_stroke(df = stRoke::talos, group = "rtreat", score = "mrs_6", 
+#' # variables = c("hypertension","diabetes","civil"))
 generic_stroke <-
   function(df,
            group,

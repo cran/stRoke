@@ -1,5 +1,6 @@
 ---
 title: "Toolbox"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Toolbox}
@@ -24,7 +25,7 @@ My own toolbox in my small workshop is a mix of some old, worn, well proven tool
 
 I have tried to collect tools and functions from other packages that I use regularly in addition to functions that I have written myself to fill use cases, that I have not been able to find solutions to elsewhere.
 
-In documenting and testing the package, I have used [OpenAI's](https://beta.openai.com/overview) chatgpt with [gpttools](https://jameshwade.github.io/gpttools/). The chatgpt is an interesting tool, that is in no way perfect, but it helps with tedious tasks. Both `gpttools` and [`gptstudio`](https://michelnivard.github.io/gptstudio/) are interesting implementations in R and RStudio.
+In documenting and testing the package, I have used [OpenAI's](https://platform.openai.com/overview) chatgpt with [gpttools](https://jameshwade.github.io/gpttools/). The chatgpt is an interesting tool, that is in no way perfect, but it helps with tedious tasks. Both `gpttools` and [`gptstudio`](https://michelnivard.github.io/gptstudio/) are interesting implementations in R and RStudio.
 
 ## CPR manipulations {#cpr-intro}
 
