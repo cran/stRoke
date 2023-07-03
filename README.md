@@ -1,14 +1,15 @@
 <!-- badges: start -->
 [![GitHub R package version](https://img.shields.io/github/r-package/v/agdamsbo/stRoke)](https://github.com/agdamsbo/stRoke)
 [![CRAN/METACRAN](https://img.shields.io/cran/v/stRoke)](https://CRAN.R-project.org/package=stRoke)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7572023.svg)](https://doi.org/10.5281/zenodo.7572023)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8013980.svg)](https://doi.org/10.5281/zenodo.8013980)
 [![Github Actions](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
 [![Page deployed](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment)
 [![Codecov test coverage](https://codecov.io/gh/agdamsbo/stRoke/branch/main/graph/badge.svg)](https://app.codecov.io/gh/agdamsbo/stRoke?branch=main)
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/stRoke)](https://cran.r-project.org/package=stRoke)
+[![R-CMD-check](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# stRoke package <img src="man/figures/hexlogo.png" align="right" />
+# stRoke package <img src="man/figures/logo.png" align="right" />
 
 This is an R-toolbox of custom functions for convenient data management and analysis in clinical health research and teaching.
 The package is mainly collected for personal use, but any use beyond that is encouraged.

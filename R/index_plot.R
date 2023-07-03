@@ -15,11 +15,8 @@ utils::globalVariables(c("name","value","facet"))
 #' @return ggplot element
 #' 
 #' @import ggplot2 
-#' @importFrom dplyr mutate
-#' @importFrom dplyr select
-#' @importFrom tidyr pivot_longer
-#' @importFrom tidyr all_of
-#' @importFrom tidyr ends_with
+#' @importFrom dplyr mutate select
+#' @importFrom tidyr pivot_longer all_of ends_with
 #' 
 #' @export
 #'
@@ -35,7 +32,7 @@ index_plot <- function(ds,id="id",sub_plot="_is",
   
   df_plot<-ds|>
     dplyr::select(c(id,
-             facet.by,
+                    tidyr::all_of(facet.by),
              tidyr::ends_with(scores)))|>
     tidyr::pivot_longer(cols=-c(id,tidyr::all_of(facet.by)))|>
     subset(grepl(sub_plot,name))|>

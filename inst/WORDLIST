@@ -1,4 +1,5 @@
 Andreas
+CMD
 Changelog
 Codecov
 DDMMYY
@@ -7,11 +8,13 @@ DataDictionary
 Gammelgaard
 Github
 Kraglund
+Labelling
 METACRAN
 NA's
 OLR
 ORCID
 OpenAI's
+PASE
 REDCap
 REDCapRITS
 RStudio
@@ -21,6 +24,7 @@ StackOverflow
 Sys
 TALOS
 Vectorised
+Washburn
 XXXX
 Zou
 agdamsbo
@@ -68,9 +72,9 @@ lm
 lst
 luminance
 mRS
-og
 olr
 recognised
+rect
 rgb
 sapply
 stackoverflow

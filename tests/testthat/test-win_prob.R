@@ -32,7 +32,7 @@ test_that("Output length is 16, and print works", {
              sample.size = TRUE, 
              print.tables = TRUE)
   expect_length(result, 16)
-  expect_s3_class(result, "win_Prop")
-  expect_output(print.win_Prop(result))
+  expect_s3_class(result, "win_Prob")
+  expect_output(print.win_Prob(result))
   
 })

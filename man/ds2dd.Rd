@@ -10,7 +10,8 @@ ds2dd(
   form.name = "basis",
   field.type = "text",
   field.label = NULL,
-  include.column.names = FALSE
+  include.column.names = FALSE,
+  metadata = stRoke::metadata_names
 )
 }
 \arguments{
@@ -31,6 +32,9 @@ names.}
 
 \item{include.column.names}{Flag to give detailed output including new
 column names for original data set for upload.}
+
+\item{metadata}{Metadata dataframe. Default is the included
+stRoke::metadata_names.}
 }
 \value{
 data.frame or list of data.frame and vector

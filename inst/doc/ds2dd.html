@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2023-04-13" />
+<meta name="date" content="2023-07-03" />
 
 <title>ds2dd</title>
 
@@ -338,11 +338,11 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">ds2dd</h1>
-<h4 class="date">2023-04-13</h4>
+<h4 class="date">2023-07-03</h4>
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stRoke)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(stRoke)</span></code></pre></div>
 <div id="easy-data-set-to-data-base-workflow" class="section level1">
 <h1>Easy data set to data base workflow</h1>
 <p>This function can be used as a simple tool for creating at data base
@@ -352,14 +352,14 @@ set file.</p>
 <h2>Step 1 - Load your data set</h2>
 <p>Here we’ll use the sample TALOS dataset included with the
 package.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;talos&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> talos</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># As the data set lacks an ID column, one is added</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ds<span class="sc">$</span>id <span class="ot">&lt;-</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(ds))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;talos&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>ds <span class="ot">&lt;-</span> talos</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># As the data set lacks an ID column, one is added</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>ds<span class="sc">$</span>id <span class="ot">&lt;-</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(ds))</span></code></pre></div>
 </div>
 <div id="step-2---create-the-datadictionary" class="section level2">
 <h2>Step 2 - Create the DataDictionary</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>datadictionary <span class="ot">&lt;-</span> <span class="fu">ds2dd</span>(ds,<span class="at">record.id =</span> <span class="st">&quot;id&quot;</span>,<span class="at">include.column.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>datadictionary <span class="ot">&lt;-</span> <span class="fu">ds2dd</span>(ds,<span class="at">record.id =</span> <span class="st">&quot;id&quot;</span>,<span class="at">include.column.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Now additional specifications to the DataDictionary can be made
 manually, or it can be uploaded and modified manually in the graphical
 user interface on the web page.</p>
@@ -375,15 +375,15 @@ projects with “Development” status).</p>
 <p>Use one of the two approaches below:</p>
 <div id="manual-upload" class="section level3">
 <h3>Manual upload</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(datadictionary<span class="sc">$</span>DataDictionary,<span class="st">&quot;datadictionary.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">write.csv</span>(datadictionary<span class="sc">$</span>DataDictionary,<span class="st">&quot;datadictionary.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="upload-with-redcapr" class="section level3">
 <h3>Upload with <code>REDCapR</code></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>REDCapR<span class="sc">::</span><span class="fu">redcap_metadata_write</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  datadictionary<span class="sc">$</span>DataDictionary,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">redcap_uri =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_URI&quot;</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">token =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_TOKEN&quot;</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>REDCapR<span class="sc">::</span><span class="fu">redcap_metadata_write</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  datadictionary<span class="sc">$</span>DataDictionary,</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  <span class="at">redcap_uri =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_URI&quot;</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="at">token =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_TOKEN&quot;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>)</span></code></pre></div>
 <p>In the <a href="https://agdamsbo.github.io/redcap-r-handbook/">“REDCap R
 Handbook”</a> more is written on interfacing with REDCap in R using the
 <code>library(keyring)</code>to store credentials in <a href="https://agdamsbo.github.io/redcap-r-handbook/access.html#sec-getting-access">chapter
@@ -395,14 +395,14 @@ Handbook”</a> more is written on interfacing with REDCap in R using the
 <p>The same two options are available for data upload as meta data
 upload: manual or through <code>REDCapR</code>.</p>
 <p>Only the latter is shown here.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new column names are applied</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ds) <span class="ot">&lt;-</span> datadictionary<span class="sc">$</span><span class="st">`</span><span class="at">Column names</span><span class="st">`</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>REDCapR<span class="sc">::</span><span class="fu">redcap_write</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  ds,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">redcap_uri =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_URI&quot;</span>),</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">token =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_TOKEN&quot;</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># new column names are applied</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">colnames</span>(ds) <span class="ot">&lt;-</span> datadictionary<span class="sc">$</span><span class="st">`</span><span class="at">Column names</span><span class="st">`</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>REDCapR<span class="sc">::</span><span class="fu">redcap_write</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  ds,</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  <span class="at">redcap_uri =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_URI&quot;</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  <span class="at">token =</span> keyring<span class="sc">::</span><span class="fu">key_get</span>(<span class="st">&quot;DB_TOKEN&quot;</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 </div>
 

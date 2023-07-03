@@ -13,6 +13,8 @@ utils::globalVariables(c("metadata_names"))
 #' names.
 #' @param include.column.names Flag to give detailed output including new
 #' column names for original data set for upload.
+#' @param metadata Metadata dataframe. Default is the included 
+#' stRoke::metadata_names.
 #'
 #' @return data.frame or list of data.frame and vector
 #' @export
@@ -27,9 +29,10 @@ ds2dd <-
            form.name = "basis",
            field.type = "text",
            field.label = NULL,
-           include.column.names = FALSE) {
-    dd <- data.frame(matrix(ncol = length(metadata_names), nrow = ncol(ds)))
-    colnames(dd) <- metadata_names
+           include.column.names = FALSE,
+           metadata = stRoke::metadata_names) {
+    dd <- data.frame(matrix(ncol = length(metadata), nrow = ncol(ds)))
+    colnames(dd) <- metadata
     
     if (is.character(record.id) & !record.id %in% colnames(ds)) {
       stop("Provided record.id is not a variable name in provided data set.")

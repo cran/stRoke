@@ -1,3 +1,25 @@
+# stRoke 23.6.3
+
+### Bug
+
+* Fixed `ds2dd()` bug after first practical implementation.
+
+# stRoke 23.6.2
+
+### Functions:
+
+* NEW: `pase_calc()` function calculates PASE scores from raw questionnaire data. Gives sub scores as well and returns basic data quality and completeness checks. Acknowledges the difference between the scoring manual and the article by Washburn PA. et al. (1999) on including sitting work in the score calculations.
+
+### Data:
+
+* NEW: `pase` sample questionnaire data. Non-identifiable and for use with the `pase_calc()` function.
+
+# stRoke 23.6.1
+
+### Functions:
+
+* NEW: 'color_plot()' function implements the 'contrast_text()' and is very much inspired from  'scales::show_col()'. Passes arguments to the internal 'contrast_text()'. Tests and all. Took way longer than intended.
+
 # stRoke 23.4.1
 
 ### Functions:

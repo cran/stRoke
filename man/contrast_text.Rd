@@ -9,7 +9,8 @@ contrast_text(
   light_text = "white",
   dark_text = "black",
   threshold = 0.5,
-  method = "perceived_2"
+  method = "perceived_2",
+  ...
 )
 }
 \arguments{
@@ -26,6 +27,8 @@ the luminance threshold of the background color for text color.}
 \item{method}{A character string that specifies the method for calculating
 the luminance. Three different methods are available:
 c("relative","perceived","perceived_2")}
+
+\item{...}{parameter overflow. Ignored.}
 }
 \value{
 A character string that contains the best contrast text color.

@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Clinical Stroke Research
-Version: 23.4.1
+Version: 23.6.3
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
@@ -19,7 +19,8 @@ License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true
-Suggests: covr, knitr, rmarkdown, spelling, testthat (>= 3.0.0)
+Suggests: covr, devtools, knitr, rmarkdown, spelling, testthat (>=
+        3.0.0)
 Language: en-US
 Config/testthat/edition: 3
 Imports: calendar, dplyr, ggplot2, grDevices, gtsummary, lubridate,
@@ -27,9 +28,9 @@ Imports: calendar, dplyr, ggplot2, grDevices, gtsummary, lubridate,
 Depends: R (>= 3.5.0)
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2023-04-13 11:56:48 UTC; au301842
+Packaged: 2023-07-03 12:02:30 UTC; au301842
 Author: Andreas Gammelgaard Damsbo [aut, cre]
     (<https://orcid.org/0000-0002-7559-1154>)
 Maintainer: Andreas Gammelgaard Damsbo <agdamsbo@clin.au.dk>
 Repository: CRAN
-Date/Publication: 2023-04-13 12:20:02 UTC
+Date/Publication: 2023-07-03 12:50:02 UTC

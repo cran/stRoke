@@ -167,12 +167,16 @@ win_prob <-
         dec = dec
       )
     )
-    class(out) <- c("win_Prop", class(out))
+    class(out) <- c("win_Prob", class(out))
     return(out)
   }
 
-
-print.win_Prop <- function (x, ...) {
+#' @title Prints win_prob results
+#' @param x win_prob results.
+#' @param ... ignored for now
+#' @return Prints win_prob statistics. 
+#' @export
+print.win_Prob <- function (x, ...) {
   args <- list(...)
   
   cat("\t Zou et al's winP (doi: 10.1161/STROKEAHA.121.037744) \n\n")
