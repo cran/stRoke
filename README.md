@@ -6,7 +6,6 @@
 [![Page deployed](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment)
 [![Codecov test coverage](https://codecov.io/gh/agdamsbo/stRoke/branch/main/graph/badge.svg)](https://app.codecov.io/gh/agdamsbo/stRoke?branch=main)
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/stRoke)](https://cran.r-project.org/package=stRoke)
-[![R-CMD-check](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # stRoke package <img src="man/figures/logo.png" align="right" />

@@ -2,7 +2,7 @@
 % Please edit documentation in R/ds2dd.R
 \name{ds2dd}
 \alias{ds2dd}
-\title{Data set to data dictionary function}
+\title{\emph{DEPRECATED} Moved to REDCapCAST::ds2dd() | Data set to data dictionary function}
 \usage{
 ds2dd(
   ds,
@@ -40,7 +40,7 @@ stRoke::metadata_names.}
 data.frame or list of data.frame and vector
 }
 \description{
-Data set to data dictionary function
+\emph{DEPRECATED} Moved to REDCapCAST::ds2dd() | Data set to data dictionary function
 }
 \examples{
 talos$id <- seq_len(nrow(talos))

@@ -1,5 +1,5 @@
 utils::globalVariables(c("metadata_names"))
-#' Data set to data dictionary function
+#' *DEPRECATED* Moved to REDCapCAST::ds2dd() | Data set to data dictionary function
 #'
 #' @param ds data set
 #' @param record.id name or column number of id variable, moved to first row of 

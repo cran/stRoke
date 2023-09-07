@@ -16,6 +16,7 @@ ORCID
 OpenAI's
 PASE
 REDCap
+REDCapCAST
 REDCapRITS
 RStudio
 Randomisation
@@ -68,6 +69,7 @@ ics
 inteRgrate
 jan
 jss
+labelling
 lm
 lst
 luminance
@@ -78,6 +80,7 @@ rect
 rgb
 sapply
 stackoverflow
+strsplit
 teppo
 vapply
 vec
