@@ -1,6 +1,6 @@
 
 
-#' Write ical object
+#' MOVED Write ical object
 #' 
 #' This function creates an ical file based on a data frame with mixed events. 
 #' Export as .ics file using `calendar::ic_write()`.

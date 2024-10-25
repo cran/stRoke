@@ -1,6 +1,6 @@
 
 
-#' @title Filter files in a folder
+#' MOVED Filter files in a folder
 #' @description This function filters files in a folder based on the 
 #' provided filter.
 #' @param folder.path character. Path of the folder to be filtered

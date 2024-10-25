@@ -2,7 +2,7 @@
 % Please edit documentation in R/chunks_of_n.R
 \name{chunks_of_n}
 \alias{chunks_of_n}
-\title{Split to chunks of size n}
+\title{MOVED Split to chunks of size n}
 \usage{
 chunks_of_n(d, n, label = NULL, even = FALSE, pattern = NULL)
 }
@@ -22,7 +22,7 @@ frame, will assume first column is name.}
 List of length n
 }
 \description{
-Split to chunks of size n
+MOVED Split to chunks of size n
 }
 \examples{
 tail(chunks_of_n(seq_len(100),7),3)

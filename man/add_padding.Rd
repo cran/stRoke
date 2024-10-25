@@ -2,9 +2,16 @@
 % Please edit documentation in R/add_padding.R
 \name{add_padding}
 \alias{add_padding}
-\title{Add padding to string}
+\title{MOVED Add padding to string}
 \usage{
-add_padding(d, length = NULL, after = FALSE, pad = "0")
+add_padding(
+  d,
+  length = NULL,
+  after = FALSE,
+  pad = "0",
+  lead = NULL,
+  tail = NULL
+)
 }
 \arguments{
 \item{d}{vector of strings or numbers}
@@ -14,13 +21,17 @@ add_padding(d, length = NULL, after = FALSE, pad = "0")
 \item{after}{if padding should be added after as opposed to default before}
 
 \item{pad}{padding string of length 1}
+
+\item{lead}{leading string for all. Number or character vector. Cycled.}
+
+\item{tail}{tailing string for all. Number or character vector. Cycled.}
 }
 \value{
 vector or character strings of same length.
 }
 \description{
-Add padding to string
+MOVED Add padding to string
 }
 \examples{
-add_padding(sample(1:200,5))
+add_padding(sample(1:200,5),tail="AA",lead=c(2,3,"e"))
 }

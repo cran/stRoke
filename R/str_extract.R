@@ -1,5 +1,7 @@
 #' Extract string based on regex pattern
-#'
+#' 
+#' DEPRECATION: moved to `agdamsbo/project.aid`
+#' 
 #' Use base::strsplit to 
 #' @param d vector of character strings
 #' @param pattern regex pattern to match

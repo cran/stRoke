@@ -1,11 +1,11 @@
 Package: stRoke
 Title: Clinical Stroke Research
-Version: 23.9.1
+Version: 24.10.1
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
-Description: This is an R-toolbox of custom functions for convenient data management 
-    and analysis in clinical health research and teaching.
+Description: A collection of tools for clinical trial data management and 
+    analysis in research and teaching.
     The package is mainly collected for personal use, but any use beyond that is encouraged.
     This package has migrated functions from 'agdamsbo/daDoctoR', and new functions has been added.
     Version follows months and year. See NEWS/Changelog for release notes.
@@ -17,20 +17,20 @@ URL: https://agdamsbo.github.io/stRoke/,
 BugReports: https://github.com/agdamsbo/stRoke/issues
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 LazyData: true
-Suggests: covr, devtools, knitr, rmarkdown, spelling, testthat (>=
-        3.0.0)
-Language: en-US
+Suggests: knitr, rmarkdown, testthat, here, spelling, usethis, pak,
+        roxygen2, devtools
 Config/testthat/edition: 3
 Imports: calendar, dplyr, ggplot2, grDevices, gtsummary, lubridate,
-        MASS, rankinPlot, stats, tidyr, utils
+        MASS, rankinPlot, stats, tidyr, utils, tibble, tidyselect
 Depends: R (>= 3.5.0)
 VignetteBuilder: knitr
+Language: en-US
 NeedsCompilation: no
-Packaged: 2023-09-07 16:16:27 UTC; au301842
+Packaged: 2024-10-25 06:34:55 UTC; au301842
 Author: Andreas Gammelgaard Damsbo [aut, cre]
     (<https://orcid.org/0000-0002-7559-1154>)
 Maintainer: Andreas Gammelgaard Damsbo <agdamsbo@clin.au.dk>
 Repository: CRAN
-Date/Publication: 2023-09-07 16:40:02 UTC
+Date/Publication: 2024-10-25 06:50:01 UTC

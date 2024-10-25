@@ -5,7 +5,7 @@
 #' \describe{
 #'   \item{metadata_names}{characterstrings}
 #' }
-#' @seealso \url{https://www.project-redcap.org/}
+#' @seealso project-redcap(dot)org (currently the certificate is broken)
 #' @usage data(metadata_names)
 "metadata_names"
 

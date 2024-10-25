@@ -25,15 +25,13 @@ My own toolbox in my small workshop is a mix of some old, worn, well proven tool
 
 I have tried to collect tools and functions from other packages that I use regularly in addition to functions that I have written myself to fill use cases, that I have not been able to find solutions to elsewhere.
 
-In documenting and testing the package, I have used [OpenAI's](https://platform.openai.com/overview) chatgpt with [gpttools](https://jameshwade.github.io/gpttools/). The chatgpt is an interesting tool, that is in no way perfect, but it helps with tedious tasks. Both `gpttools` and [`gptstudio`](https://michelnivard.github.io/gptstudio/) are interesting implementations in R and RStudio.
-
 ## CPR manipulations {#cpr-intro}
 
 Note that, if handled, CPR numbers (social security numbers) should be handled with care as they a considered highly sensitive data.
 
 The CPR number is structured as _DDMMYY-XXXX_, with the 1st _X_ designating decade of birth, the last _X_ designate binary gender (not biological sex) dependent on even/uneven as female/male, and the last for digits are used in a modulus calculation to verify the validity of the CPR number. Foreigners and unidentified persons are given temporary CPR numbers including letters.
 
-More information can be found on [cpr.dk](https://cpr.dk).
+More information can be found on [cpr.dk](https://www.cpr.dk).
 
 Note, that all CPR numbers used in examples are publicly known or non-organic.
 
@@ -48,7 +46,7 @@ trunc(age)
 
 ### cpr_check()
 
-Checks validity of CPR numbers according to the [modulus 11 rule](https://cpr.dk/cpr-systemet/opbygning-af-cpr-nummeret). Note that due to limitations in the possible available CPR numbers, this rule [does not apply to all CPR numbers after 2007](https://cpr.dk/cpr-systemet/personnumre-uden-kontrolciffer-modulus-11-kontrol).
+Checks validity of CPR numbers according to the [modulus 11 rule](https://www.cpr.dk/cpr-systemet/opbygning-af-cpr-nummeret). Note that due to limitations in the possible available CPR numbers, this rule [does not apply to all CPR numbers after 2007](https://www.cpr.dk/cpr-systemet/personnumre-uden-kontrolciffer-modulus-11-kontrol).
 
 ```{r cpr_check-example}
 cpr_check(
@@ -108,7 +106,7 @@ ci_plot(
 
 ### generic_stroke()
 
-For learning purposes. Uses annonymized data from the [TALOS trial](https://doi.org/10.1161/STROKEAHA.117.020067) to output a Table 1 (with `gtsummary::tbl_summary()`), plotting the so-called grotta-bars based on mRS scores (with `rankinPlot::grottaBar()`) and a ordinal logistic regression model plot (with `stRoke::ci_plot()`).
+For learning purposes. Uses anonymized data from the [TALOS trial](https://doi.org/10.1161/STROKEAHA.117.020067) to output a Table 1 (with `gtsummary::tbl_summary()`), plotting the so-called grotta-bars based on mRS scores (with `rankinPlot::grottaBar()`) and a ordinal logistic regression model plot (with `stRoke::ci_plot()`).
 
 ```{r generic_stroke-example}
 generic_stroke(stRoke::talos,

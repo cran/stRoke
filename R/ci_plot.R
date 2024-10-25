@@ -42,8 +42,8 @@ ci_plot <-
            title = NULL, 
            method = "auto") {
     
-    if (!method %in% c("auto", "model"))
-      stop("Method has to either 'auto' or 'model'")
+    if (!method %in% c("auto", "model")){
+      stop("Method has to either 'auto' or 'model'")}
     
     if (method == "auto") {
       if (!is.factor(ds[, y]))

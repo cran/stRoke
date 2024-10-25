@@ -3,6 +3,7 @@
 #' Calculates PASE score from raw questionnaire data.
 #' @param ds data set
 #' @param adjust_work flag to set whether to include 10b type 1. 
+#' @param consider.missing character vector of values considered missing.
 #' Default is TRUE.
 #'
 #' @return data.frame
@@ -27,10 +28,16 @@
 #' 
 #' @examples
 #' summary(pase_calc(stRoke::pase)[,13])
+#' str(pase_calc(stRoke::pase))
 #' 
-pase_calc <- function(ds, adjust_work = FALSE) {
+pase_calc <- function(ds, 
+                      adjust_work = FALSE, 
+                      consider.missing = c("Not available")) {
   
-  if (ncol(ds) != 21) stop("supplied data set has to contain exactly 21 columns")
+  if (ncol(ds) != 21) {
+    stop("supplied data set has to contain exactly 21 columns.
+         Formatting should follow the stRoke::pase data set.")
+    }
   
   pase <- ds
   
@@ -41,10 +48,20 @@ pase_calc <- function(ds, adjust_work = FALSE) {
   pase <- do.call(data.frame, lapply(pase, as.character))
   
   ## Missings and incompletes
+  # Cosidered missing if all data is missing
   missings <- apply(apply(ds, 2, is.na), 1, all)
+  
+  # Considered incomplete if any entry in main answers is missing
+  mains <- grep("([0-9]{2}|(09[a-d]))$",colnames(pase))
+  
+  if (length(mains)!=13){
+    stop("The supplied dataset does not contain expected variable names.
+         Please run str(stRoke::pase) and format your data accordingly.")
+    }
+  
   incompletes <-
-    apply(sapply(ds[, c(1, 3, 5, 7, 9, 11, 13:20)], function(x) {
-      x == "Not available" | is.na(x)
+    apply(sapply(ds[, mains], function(x) {
+      x %in% consider.missing | is.na(x)
     }), 1, any)
   
   names(pase) <- c(
@@ -78,7 +95,7 @@ pase_calc <- function(ds, adjust_work = FALSE) {
   
   ## PASE 2-6
   
-  pase_weigths <- list(
+  pase_weights <- list(
     "1" = c(
       "1" = 0.11,
       "2" = 0.32,
@@ -104,37 +121,45 @@ pase_calc <- function(ds, adjust_work = FALSE) {
   
   pase_score_26 <- lapply(seq_along(pase_list[2:6]), function(x) {
     df <- pase_list[2:6][[x]]
-    score <- c()
+    # score <- c()
     
     ## =====================
     ## Checking labelling
-    if (!all(range(suppressWarnings(as.numeric(substr(
-      df[, 1], 1, 1
-    ))), na.rm = TRUE) == c(0, 3))) {
-      stop("Labelling of 02-06 should start with a number ranging 1-4")
+    if (!all(stRoke::str_extract(df[, 1], "^[0-3]") |> 
+             as.numeric() |> 
+             range(na.rm = TRUE) == c(0, 3))) {
+      stop("Labelling of 02-06 should start with a number ranging 0-3")
     }
+    
+    if (!all(stRoke::str_extract(df[, 2], "^[1-4]") |> 
+             as.numeric() |> 
+             range(na.rm = TRUE) == c(1, 4))) {
+      stop("Labelling of 02-06 subscores should start with a number ranging 1-4")
+    }
+    
     ## =====================
     
-    for (i in seq_len(nrow(df))) {
-      # Setting categories from numbers
-      n1 <- suppressWarnings(as.numeric(substr(df[, 1][i], 1, 1)))
+    ## Extracting the first string element in main entry
+    n1 <- stRoke::str_extract(df[, 1],"^[0-3]") |> as.numeric()
+    ## Extracting the first string element in subentry
+    n2 <- stRoke::str_extract(df[, 2],"^[1-4]") |> as.numeric()
+    
+    score <- c()
+    for (i in seq_along(n1)) {
       
-      # Using if statement to calculate row wise
-      if (n1 %in% c(1:3)) {
-        # Second category
-        n2 <- suppressWarnings(as.numeric(substr(df[, 2][i], 1, 1)))
-        score[i] <- pase_weigths[[n1]][n2] * pase_multip_26[x] 
-        
-      } else if (n1 %in% 0) {
-        score[i] <- 0
+      ind1 <- match(n1[i],seq_along(pase_weights))
+      
+      if (is.na(ind1)){
+        score[i] <- n1[i]
       } else {
-        score[i] <- NA
+        score[i] <- pase_weights[[ind1]][n2[i]] * pase_multip_26[x] 
       }
+      
     }
     score
   })
   
-  names(pase_score_26) <- paste0("score_", names(pase_list[2:6]))
+  names(pase_score_26) <- paste0("pase_score_", names(pase_list[2:6]))
   
   ## PASE 7-9d
   pase_multip_79 <- c(25, 25, 30, 36, 20, 35)
@@ -147,7 +172,7 @@ pase_calc <- function(ds, adjust_work = FALSE) {
     ) * pase_multip_79))
   
   names(pase_score_79) <-
-    paste0("score_", sub("pase", "", names(pase_score_79)))
+    paste0("pase_score_", sub("pase","",names(pase_score_79)))
   
   ## PASE 10
   ## Completely ignores if 10b is not completed
@@ -157,15 +182,15 @@ pase_calc <- function(ds, adjust_work = FALSE) {
     # Only includes work time if 10b is != 1
     pase_score_10[substr(pase_list[[10]][[3]],1,1) == "1"] <- 0
     # Consequently consider "Not available" in 10b as incomplete
-    incompletes[ds[,21] == "Not available" & !incompletes & !is.na(incompletes)] <- TRUE
+    incompletes[ds[,21] %in% consider.missing & !incompletes & !is.na(incompletes)] <- TRUE
   }
   
   pase_score <- cbind(pase_score_26, pase_score_79, pase_score_10)
   
   data.frame(
     pase_score,
-    score_sum = rowSums(pase_score, na.rm = TRUE),
-    score_missings = missings,
-    score_incompletes = incompletes
+    pase_score_sum = rowSums(pase_score, na.rm = TRUE),
+    pase_score_missings = missings,
+    pase_score_incompletes = incompletes
   )
 }

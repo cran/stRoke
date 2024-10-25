@@ -1,3 +1,18 @@
+# stRoke 24.10.1
+
+This version marks a significant change in the contents and focus of this package. Going forward I will include functions with a focus on handling clinical trial data from my own stroke research.
+Other functions for general data management an project management has been migrated to the [`project.aid`](https://agdamsbo.github.io/project.aid/) package, which is moving towards CRAN submission. Install dev-version with `pak::pak("agdamsbo/project.aid")`.
+
+### Functions:
+
+* UPDATE: `pase_calc()` updated for uniform column naming in output as well as streamlining the function a bit.
+
+* Moving: The following functions are moved to `agdamsbo/project.aid` to focus on (stroke) trial related functions: `str_extract()`, `add_padding()`, `age_calc()`, `chunks_of_n()`, `contrast_text()`, `files_filter()`, `quantile_cut()`, `write_ical()`.
+
+* NEW: `mfi_calc()` calculates domain scores from the MFI questionnaire. Takes data frame of 20 ordered as the questionnaire. Default is to reverse questions with reverse scoring.
+
+Checks set up with `rhub` v2
+
 # stRoke 23.9.1
 
 ### Functions:

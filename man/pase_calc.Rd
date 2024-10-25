@@ -4,12 +4,14 @@
 \alias{pase_calc}
 \title{PASE score calculator}
 \usage{
-pase_calc(ds, adjust_work = FALSE)
+pase_calc(ds, adjust_work = FALSE, consider.missing = c("Not available"))
 }
 \arguments{
 \item{ds}{data set}
 
-\item{adjust_work}{flag to set whether to include 10b type 1.
+\item{adjust_work}{flag to set whether to include 10b type 1.}
+
+\item{consider.missing}{character vector of values considered missing.
 Default is TRUE.}
 }
 \value{
@@ -41,5 +43,6 @@ set \code{TRUE}.
 }
 \examples{
 summary(pase_calc(stRoke::pase)[,13])
+str(pase_calc(stRoke::pase))
 
 }

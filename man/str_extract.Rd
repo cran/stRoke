@@ -15,6 +15,9 @@ str_extract(d, pattern)
 vector of character strings
 }
 \description{
+DEPRECATION: moved to \code{agdamsbo/project.aid}
+}
+\details{
 Use base::strsplit to
 }
 \examples{

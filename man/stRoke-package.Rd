@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-This is an R-toolbox of custom functions for convenient data management and analysis in clinical health research and teaching. The package is mainly collected for personal use, but any use beyond that is encouraged. This package has migrated functions from 'agdamsbo/daDoctoR', and new functions has been added. Version follows months and year. See NEWS/Changelog for release notes. This package includes sampled data from the TALOS trial (Kraglund et al (2018) \doi{10.1161/STROKEAHA.117.020067}). The win_prob() function is based on work by Zou et al (2022) \doi{10.1161/STROKEAHA.121.037744}. The age_calc() function is based on work by Becker (2020) \doi{10.18637/jss.v093.i02}.
+A collection of tools for clinical trial data management and analysis in research and teaching. The package is mainly collected for personal use, but any use beyond that is encouraged. This package has migrated functions from 'agdamsbo/daDoctoR', and new functions has been added. Version follows months and year. See NEWS/Changelog for release notes. This package includes sampled data from the TALOS trial (Kraglund et al (2018) \doi{10.1161/STROKEAHA.117.020067}). The win_prob() function is based on work by Zou et al (2022) \doi{10.1161/STROKEAHA.121.037744}. The age_calc() function is based on work by Becker (2020) \doi{10.18637/jss.v093.i02}.
 }
 \seealso{
 Useful links:

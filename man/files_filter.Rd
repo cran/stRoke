@@ -2,7 +2,7 @@
 % Please edit documentation in R/files_filter.R
 \name{files_filter}
 \alias{files_filter}
-\title{Filter files in a folder}
+\title{MOVED Filter files in a folder}
 \usage{
 files_filter(folder.path, filter.by, full.names = TRUE)
 }

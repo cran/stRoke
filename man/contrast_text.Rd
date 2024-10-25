@@ -2,7 +2,7 @@
 % Please edit documentation in R/contrast_text.R
 \name{contrast_text}
 \alias{contrast_text}
-\title{Contrast Text Color}
+\title{MOVED Contrast Text Color}
 \usage{
 contrast_text(
   background,

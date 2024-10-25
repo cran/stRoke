@@ -1,4 +1,4 @@
-#' Easy function for splitting numeric variable in quantiles
+#' MOVED Easy function for splitting numeric variable in quantiles
 #'
 #' Using base/stats functions cut() and quantile().
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/quantile_cut.R
 \name{quantile_cut}
 \alias{quantile_cut}
-\title{Easy function for splitting numeric variable in quantiles}
+\title{MOVED Easy function for splitting numeric variable in quantiles}
 \usage{
 quantile_cut(
   x,

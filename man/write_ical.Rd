@@ -2,7 +2,7 @@
 % Please edit documentation in R/write_ical.R
 \name{write_ical}
 \alias{write_ical}
-\title{Write ical object}
+\title{MOVED Write ical object}
 \usage{
 write_ical(
   df,

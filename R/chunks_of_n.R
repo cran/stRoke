@@ -1,4 +1,4 @@
-#' Split to chunks of size n
+#' MOVED Split to chunks of size n
 #'
 #' @param d data. Can be vector or data frame.
 #' @param n number of chunks

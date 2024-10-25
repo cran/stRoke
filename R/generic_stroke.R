@@ -36,13 +36,13 @@ generic_stroke <-
       gtsummary::add_overall()
     
     x <- table(df[, c(group, score, strata)])
-    f1 <- rankinPlot::grottaBar(
+    f1 <- suppressWarnings(rankinPlot::grottaBar(
       x = x,
       groupName = group,
       scoreName = score,
       strataName = strata,
       colourScheme = "custom"
-    )
+    ))
     
     df[, score] <- factor(df[, score], ordered = TRUE)
     

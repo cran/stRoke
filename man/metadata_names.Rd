@@ -17,6 +17,6 @@ data(metadata_names)
 Vector of REDCap metadata headers
 }
 \seealso{
-\url{https://www.project-redcap.org/}
+project-redcap(dot)org (currently the certificate is broken)
 }
 \keyword{datasets}

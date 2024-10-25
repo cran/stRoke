@@ -1,6 +1,4 @@
-
-
-#' @title Contrast Text Color
+#' MOVED Contrast Text Color
 #' @description Calculates the best contrast text color for a given 
 #' background color.
 #' @param background A hex/named color value that represents the background.
