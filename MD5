@@ -1,6 +1,6 @@
-fd86c0794a6682dde730f2b1d82b436c *DESCRIPTION
+1a65ebc45d1cba01488684930891406b *DESCRIPTION
 7ab892e0465dd96667bf6f97c3ef42cd *NAMESPACE
-99c613ce7eb41926f85214fe5c2babfc *NEWS.md
+430b7421bbbdf3c426b6131ce914ecbb *NEWS.md
 4b3243454ad07efad39d179bd269b455 *R/add_padding.R
 7b12e6054953e69ede6dfeb21fd2dda1 *R/age_calc.R
 562f6181c739c908b7d8741cb198ed34 *R/chunks_of_n.R
@@ -36,7 +36,7 @@ bef9db1e7fcce7320034d5594439af9b *data/score.rda
 0dbebdc56a126f7afb21aee49c047f31 *inst/WORDLIST
 7dee6292dfa13c9fd9cfae4d9f893265 *inst/doc/toolbox.R
 8085dd6605e397e404d9abfe8fd12434 *inst/doc/toolbox.Rmd
-a2497389694cd37cdd07b3fba43aa6ee *inst/doc/toolbox.html
+2895444005f9bccf072727128301d4a4 *inst/doc/toolbox.html
 9adbf981e525977bea5537a1c5a7cf5d *man/add_padding.Rd
 d3c74a54cf1e8f7eacce7d01259dea2b *man/age_calc.Rd
 316d2c3552d0781fce9923033e699d3e *man/chunks_of_n.Rd
@@ -69,11 +69,12 @@ f98be5ecd2d03e7c5e3db6912839d8fd *man/str_extract.Rd
 44da65e3085bd5535c23c6696c41ae8c *man/talos.Rd
 a00b1635783d2370dfec1bda36b93f54 *man/win_prob.Rd
 ca2b52172ef013e662a94041388b123c *man/write_ical.Rd
+0622a97a2aaa3c342f09636052c2d7f5 *tests/spelling.R
 08ad1c74a6a5f7c7b475e81a91603cb9 *tests/testthat.R
 f85369812b788b1f9a84d4db9886865b *tests/testthat/test-ci_plot.R
 578042a909ee54b84365732273fcf8ed *tests/testthat/test-cpr_tools.R
 a2869f6a9f58dab7ad6242d5d4083358 *tests/testthat/test-generic_stroke.R
-950a332b0980fa3300b44d7e63d0609b *tests/testthat/test-index_plot.R
+34362d06e493c770d3d5fa982d76c942 *tests/testthat/test-index_plot.R
 713ece9e8f35122a9b2dc0898a52461c *tests/testthat/test-label_select.R
 df4265d18691e466ddf30a9b72506f5d *tests/testthat/test-pase_calc.R
 401d9442b7825e668d7595250befaddc *tests/testthat/test-source_lines.R
