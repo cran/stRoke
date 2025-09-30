@@ -1,3 +1,7 @@
+# stRoke 25.9.2
+
+Includes synthetic data based on a subset of the variables included in the TALOS trial cohort for educational purposes. Use with "data(trial)".
+
 # stRoke 25.9.1
 
 This is just a very minor update to accommodate the upcoming changes to ggplot2.

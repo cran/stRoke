@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Clinical Stroke Research
-Version: 25.9.1
+Version: 25.9.2
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
@@ -28,9 +28,9 @@ Depends: R (>= 4.1.0)
 VignetteBuilder: knitr
 Language: en-US
 NeedsCompilation: no
-Packaged: 2025-09-02 12:19:15 UTC; au301842
+Packaged: 2025-09-30 10:35:43 UTC; au301842
 Author: Andreas Gammelgaard Damsbo [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-7559-1154>)
 Maintainer: Andreas Gammelgaard Damsbo <agdamsbo@clin.au.dk>
 Repository: CRAN
-Date/Publication: 2025-09-02 12:40:02 UTC
+Date/Publication: 2025-09-30 10:50:02 UTC

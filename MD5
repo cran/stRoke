@@ -1,6 +1,6 @@
-1a65ebc45d1cba01488684930891406b *DESCRIPTION
+06c53c6d05cd5316a38531e6590c5351 *DESCRIPTION
 7ab892e0465dd96667bf6f97c3ef42cd *NAMESPACE
-430b7421bbbdf3c426b6131ce914ecbb *NEWS.md
+58b659d2ce5aac9f08813870d9de91be *NEWS.md
 4b3243454ad07efad39d179bd269b455 *R/add_padding.R
 7b12e6054953e69ede6dfeb21fd2dda1 *R/age_calc.R
 562f6181c739c908b7d8741cb198ed34 *R/chunks_of_n.R
@@ -23,6 +23,7 @@ c59c97259b127f78899cd409f6b66be7 *R/source_lines.R
 df6cc46bc7fae1a55b713f3d5065b35a *R/stRoke-package.R
 1bfa4a6f25e1715e7eb186620590dc64 *R/str_extract.R
 115a60cc61179b8046fdcdc68caa5afe *R/talos.R
+b1cd1d0242e8bd96aba478ceed41569f *R/trial.R
 1ed682b14df72cfbd1eebe5cb416dfb5 *R/win_prob.R
 e270547cf013bebb1c57fa18017baffd *R/write_ical.R
 f2d87b7f96034f80284aa41d397330c0 *README.md
@@ -33,10 +34,11 @@ f9f18f242fdc025c9951e39f15d13727 *build/vignette.rds
 c5c5db5381c76c721216bc637f3c442e *data/pase.rda
 bef9db1e7fcce7320034d5594439af9b *data/score.rda
 563b9b9a9ce471dad2a1b7c5bdfcb2d9 *data/talos.rda
-0dbebdc56a126f7afb21aee49c047f31 *inst/WORDLIST
+9c8b91183ad7071b4f3c577dd7f97f65 *data/trial.rda
+d5addfd367cbce832cec2ff3c2d8ebbc *inst/WORDLIST
 7dee6292dfa13c9fd9cfae4d9f893265 *inst/doc/toolbox.R
 8085dd6605e397e404d9abfe8fd12434 *inst/doc/toolbox.Rmd
-2895444005f9bccf072727128301d4a4 *inst/doc/toolbox.html
+8e167f4d3a803b11d69851382e6968ba *inst/doc/toolbox.html
 9adbf981e525977bea5537a1c5a7cf5d *man/add_padding.Rd
 d3c74a54cf1e8f7eacce7d01259dea2b *man/age_calc.Rd
 316d2c3552d0781fce9923033e699d3e *man/chunks_of_n.Rd
@@ -67,6 +69,7 @@ fc3061ff8205ce6cb6c986497c511126 *man/source_lines.Rd
 bfa0570ba947237fa2d8a401b31438c0 *man/stRoke-package.Rd
 f98be5ecd2d03e7c5e3db6912839d8fd *man/str_extract.Rd
 44da65e3085bd5535c23c6696c41ae8c *man/talos.Rd
+19bf5947d9f9978655a3978e3584f4fb *man/trial.Rd
 a00b1635783d2370dfec1bda36b93f54 *man/win_prob.Rd
 ca2b52172ef013e662a94041388b123c *man/write_ical.Rd
 0622a97a2aaa3c342f09636052c2d7f5 *tests/spelling.R
